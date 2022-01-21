@@ -1,0 +1,32 @@
+version: '3.9'
+services:
+  web:
+    build:
+      context: .
+    environment:
+      PGUSER: postgres
+      PGPASSWORD: postgres
+      PGDATABASE: mind_game_dev
+      PGPORT: 5432
+      # Hostname of our Postgres container
+      PGHOST: db
+    ports:
+      - "4000:4000"
+    depends_on:
+      - db
+    volumes:
+      - .:/app
+      - /app/deps/
+      - /app/_build/
+  db:
+    image: postgres:12.9-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      PGDATA: /var/lib/postgresql/data/pgdata
+    restart: always
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+# Define the volumes
+volumes:
+  pgdata:

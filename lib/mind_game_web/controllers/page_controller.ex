@@ -1,0 +1,7 @@
+defmodule MindGameWeb.PageController do
+  use MindGameWeb, :controller
+
+  def index(conn, _params) do
+    render(conn, "index.html")
+  end
+end
