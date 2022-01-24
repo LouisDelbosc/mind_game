@@ -24,8 +24,12 @@ config :mind_game, MindGameWeb.Endpoint,
 # In test we don't send emails.
 config :mind_game, MindGame.Mailer, adapter: Swoosh.Adapters.Test
 
-# Print only warnings and errors during test
-config :logger, level: :warn
+# First line : Print only warnings and errors during test
+# Second line : Print everything during tests
+config :logger, level: :warning
+# config :logger,
+# backends: [:console],
+# compile_time_purge_level: :debug
 
 # Initialize plugs at runtime for faster test compilation
 config :phoenix, :plug_init_mode, :runtime
