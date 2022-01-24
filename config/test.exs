@@ -8,7 +8,7 @@ import Config
 config :mind_game, MindGame.Repo,
   username: "postgres",
   password: "postgres",
-  hostname: "db",
+  hostname: System.get_env("PGHOST", "db"),
   database: "mind_game_test#{System.get_env("MIX_TEST_PARTITION")}",
   pool: Ecto.Adapters.SQL.Sandbox,
   ports: 5432,
@@ -17,7 +17,7 @@ config :mind_game, MindGame.Repo,
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
 config :mind_game, MindGameWeb.Endpoint,
-  http: [ip: {127, 0, 0, 1}, port: 4002],
+  http: [ip: {0, 0, 0, 0}, port: 4002],
   secret_key_base: "UNRWGCieLb/HNv/Ah3R/4kHCyyaYiuTZaaUB0w5SNTIP7RXigfhhmI+jwNWVUcUS",
   server: false
 
