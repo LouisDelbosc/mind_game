@@ -20,5 +20,6 @@ RUN mix deps.get
 RUN mix local.rebar --force
 RUN mix do compile
 RUN chmod +x entrypoint.sh
+RUN cd assets && npm install
 
 CMD ["/app/entrypoint.sh"]
