@@ -127,6 +127,5 @@ defmodule MindGame.QuestionsTest do
       answer = answer_fixture()
       assert %Ecto.Changeset{} = Questions.change_answer(answer)
     end
-
   end
 end

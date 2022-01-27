@@ -18,6 +18,8 @@ defmodule MindGameWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    live "/questions", QuestionsLive
+    live "/questions/:id", QuestionLive
   end
 
   # Other scopes may use custom stacks.
